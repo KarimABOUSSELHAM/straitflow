@@ -1,7 +1,7 @@
 [project]
 name = "straitflow"
 version = "0.1.0"
-description = "Add your description here"
+description = "AProbabilistic forecasting of Spain-Morocco electricity flows with conformal guarantees, and import nomination under uncertainty."
 readme = "README.md"
 authors = [
     { name = "Karim Abousselham", email = "karim.abousselham@gmail.com" }
@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [project.scripts]
-straitflow = "straitflow:main"
+straitflow = "straitflow.cli:app"
 
 [build-system]
 requires = ["uv_build>=0.13.4,<0.14.0"]
@@ -31,3 +31,15 @@ dev = [
     "pytest>=9.1.1",
     "ruff>=0.17.1",
 ]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
