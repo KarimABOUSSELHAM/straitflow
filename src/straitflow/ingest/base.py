@@ -43,6 +43,14 @@ DEFAULT_LAG = timedelta(hours=24)
 
 
 def publication_lag(series: str) -> timedelta:
+    """Compute publication lag of the series
+
+    Args:
+        series (str): series of prices
+
+    Returns:
+        timedelta: publication lag
+    """
     for prefix, lag in PUBLICATION_LAG.items():
         if series.startswith(prefix):
             return lag
